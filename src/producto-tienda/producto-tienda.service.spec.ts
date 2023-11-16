@@ -41,7 +41,7 @@ describe('ProductoTiendaService', () => {
     for (let i = 0; i < 5; i++) {
       const producto: ProductoEntity = await productoRepository.save({
         nombre: faker.commerce.product(),
-        precio: faker.number.float(),
+        precio: faker.number.int(),
         tipo: faker.image.url(),
       });
 
@@ -64,7 +64,7 @@ describe('ProductoTiendaService', () => {
   it('addStoreToProduct should add a tienda to a product', async () => {
     const producto: ProductoEntity = await productoRepository.save({
       nombre: faker.commerce.product(),
-      precio: faker.number.float(),
+      precio: faker.number.int(),
       tipo: faker.image.url(),
     });
 
@@ -91,7 +91,7 @@ describe('ProductoTiendaService', () => {
       // Create a producto, but don't create a tienda
       const producto: ProductoEntity = await productoRepository.save({
         nombre: faker.commerce.product(),
-        precio: faker.number.float(),
+        precio: faker.number.int(),
         tipo: faker.image.url(),
       });
 
@@ -262,7 +262,7 @@ describe('ProductoTiendaService', () => {
     });
 
     expect(updatedProducto.tiendas.length).toBe(0);
-    expect(deletedTienda).toBeUndefined();
+    expect(deletedTienda).toBe(null);
   });
   it('updateStoresFromProduct should trhow an exception for an invalid product', async () => {
     try {

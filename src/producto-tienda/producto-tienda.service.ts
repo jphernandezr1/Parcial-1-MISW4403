@@ -133,17 +133,15 @@ export class ProductoTiendaService {
       );
 
     const prod = tienda.productos.find((produc) => produc.id === producto.id);
-
     if (!prod) {
       throw new BusinessLogicException(
         'The tienda do not have that product',
         BusinessError.NOT_FOUND,
       );
     }
-
-    for (const prod of tienda.productos) {
+    for (const prods of tienda.productos) {
       const producto_2: ProductoEntity = await this.productoRepository.findOne({
-        where: { id: prod.id },
+        where: { id: prods.id },
         relations: ['tiendas'],
       });
       producto_2.tiendas = producto_2.tiendas.filter(
@@ -151,6 +149,14 @@ export class ProductoTiendaService {
       );
       await this.productoRepository.save(producto_2);
     }
-    await this.tiendaRepository.delete(tienda);
+    const tienda_2: TiendaEntity = await this.tiendaRepository.findOne({
+      where: { id: tienda_id },
+    });
+    if (!tienda)
+      throw new BusinessLogicException(
+        'The tienda with the given id was not found',
+        BusinessError.NOT_FOUND,
+      );
+    await this.tiendaRepository.delete(tienda_2);
   }
 }
