@@ -24,7 +24,7 @@ export class TiendaService {
     });
     if (!tienda)
       throw new BusinessLogicException(
-        'The product with the given id was not found',
+        'The tienda with the given id was not found',
         BusinessError.NOT_FOUND,
       );
 
