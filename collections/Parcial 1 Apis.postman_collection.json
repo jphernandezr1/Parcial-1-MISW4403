@@ -1,0 +1,2562 @@
+{
+	"info": {
+		"_postman_id": "45d6abeb-c18f-4f46-bd7a-7a18cd94dc30",
+		"name": "Parcial 1 Apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19568698",
+		"_collection_link": "https://www.postman.com/satellite-geoscientist-50440965/workspace/my-workspace/collection/19568698-45d6abeb-c18f-4f46-bd7a-7a18cd94dc30?action=share&source=collection_link&creator=19568698"
+	},
+	"item": [
+		{
+			"name": "tienda",
+			"item": [
+				{
+					"name": "Crear una tienda valida",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tienda 1\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"tienda 1\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/stores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "108"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6c-N//em6mfaR+vmz3pBbPqfvqFAU8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:32:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nombre\": \"tienda 1\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\",\n    \"id\": \"d06995d9-cd67-4df5-a964-9e8b1720081a\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Crear una tienda invalida",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tienda 1\",\n    \"ciudad\": \"MEDEllIN\",\n    \"direccion\": \"plaza central\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"tienda 1\",\n    \"ciudad\": \"MEDEllIN\",\n    \"direccion\": \"plaza central\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/stores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores"
+									]
+								}
+							},
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-9uHIeVTBcZfCDvOJadRMKrG90NQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:32:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The ciudad does not have the correct format\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtener tiendas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "obtener tienda",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"tienda 1\",\n    \"ciudad\": \"MEDEllIN\",\n    \"direccion\": \"plaza central\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/stores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6e-1i6UM+aUrUUqh9J8E981fRKdXO4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:39:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"d06995d9-cd67-4df5-a964-9e8b1720081a\",\n        \"nombre\": \"tienda 1\",\n        \"ciudad\": \"MED\",\n        \"direccion\": \"plaza central\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "obtener tienda valida",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1720081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720081a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "219"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"db-M1ksUWLNuDcPJ1aW0IHxPmGdpcU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:45:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d06995d9-cd67-4df5-a964-9e8b1720081a\",\n    \"nombre\": \"tienda 1\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\",\n    \"productos\": [\n        {\n            \"id\": \"ffb48876-3090-48e1-ba46-f54ad871fc2f\",\n            \"nombre\": \"tienda 1\",\n            \"precio\": 1,\n            \"tipo\": \"Perecedero\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "obtener tienda invalida",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1721181a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1721181a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1721181a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1721181a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-ZCYcHtKXt0nHB4XhOo+h7s3nW2k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:47:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The tienda with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar tienda valido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tienda actualizada\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1720081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"tienda actualizada\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720081a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "229"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e5-LKmlaraAbke1eBQh08O6BeCnPX4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:54:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d06995d9-cd67-4df5-a964-9e8b1720081a\",\n    \"nombre\": \"tienda actualizada\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\",\n    \"productos\": [\n        {\n            \"id\": \"ffb48876-3090-48e1-ba46-f54ad871fc2f\",\n            \"nombre\": \"tienda 1\",\n            \"precio\": 1,\n            \"tipo\": \"Perecedero\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar tienda invalido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tienda actualizada\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720981a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1720981a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar tienda invalido",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"tienda actualizada\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720981a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720981a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-ZCYcHtKXt0nHB4XhOo+h7s3nW2k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:55:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The tienda with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar tienda invalido 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tienda actualizada\",\n    \"ciudad\": \"MEDEllin\",\n    \"direccion\": \"plaza central\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1720081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar tienda invalido",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"tienda actualizada\",\n    \"ciudad\": \"MEDEllin\",\n    \"direccion\": \"plaza central\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720081a"
+									]
+								}
+							},
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-9uHIeVTBcZfCDvOJadRMKrG90NQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:55:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The ciudad does not have the correct format\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete tienda Valid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1720081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720081a"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:06:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete tienda invalid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1721081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1721081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete tienda Valid Copy",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/stores/d06995d9-cd67-4df5-a964-9e8b1721081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1721081a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-ZCYcHtKXt0nHB4XhOo+h7s3nW2k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:05:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The tienda with the given id was not found\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "producto",
+			"item": [
+				{
+					"name": "Crear Un producto valido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"producto 2\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"tienda 1\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-2zHR9B/rKcVU2KippT0TliPV79g\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:34:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nombre\": \"tienda 1\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\",\n    \"id\": \"ffb48876-3090-48e1-ba46-f54ad871fc2f\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Crear Un producto invalido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tienda 1\",\n    \"precio\": 1,\n    \"tipo\": \"otro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"tienda 1\",\n    \"precio\": 1,\n    \"tipo\": \"otro\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4f-PE5lYeIOOwrfvyfA//0WgUluPPY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:35:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The producto does not belong to the correct tipo\"\n}"
+						}
+					]
+				},
+				{
+					"name": "obtener productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"62-ofEJ9L+Yz8jEGHnCWnyMRhs6OZc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:40:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"ffb48876-3090-48e1-ba46-f54ad871fc2f\",\n        \"nombre\": \"tienda 1\",\n        \"precio\": 1,\n        \"tipo\": \"Perecedero\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "obtener producto valido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "obtener producto valido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "217"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d9-h2xL8QEgD6ra/l3A5dgahuPnaTs\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:49:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"ffb48876-3090-48e1-ba46-f54ad871fc2f\",\n    \"nombre\": \"tienda 1\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\",\n    \"tiendas\": [\n        {\n            \"id\": \"d06995d9-cd67-4df5-a964-9e8b1720081a\",\n            \"nombre\": \"tienda 1\",\n            \"ciudad\": \"MED\",\n            \"direccion\": \"plaza central\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "obtener producto invalido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/d06995d9-cd67-4df5-a964-9e8b1720081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"d06995d9-cd67-4df5-a964-9e8b1720081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "obtener producto invalido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/d06995d9-cd67-4df5-a964-9e8b1720081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"d06995d9-cd67-4df5-a964-9e8b1720081a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-iQTKaPdZ40YdwkVyKYlmEufUk5M\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:49:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The product with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar producto valido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar producto valido",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "239"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ef-XHbiiHhLNg0YRdit1VxgdLLkqNw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:58:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"ffb48876-3090-48e1-ba46-f54ad871fc2f\",\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\",\n    \"tiendas\": [\n        {\n            \"id\": \"d06995d9-cd67-4df5-a964-9e8b1720081a\",\n            \"nombre\": \"tienda actualizada\",\n            \"ciudad\": \"MED\",\n            \"direccion\": \"plaza central\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar producto invalido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/d06995d9-cd67-4df5-a964-9e8b1720981a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"d06995d9-cd67-4df5-a964-9e8b1720981a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar producto invalido",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/products/d06995d9-cd67-4df5-a964-9e8b1720981a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"d06995d9-cd67-4df5-a964-9e8b1720981a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-aUPqo9fnmSPjUKh2EHmkDTEDeVU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:59:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The producto with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar producto invalido 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"otro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar producto invalido 2",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"otro\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f"
+									]
+								}
+							},
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4f-PE5lYeIOOwrfvyfA//0WgUluPPY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:59:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The producto does not belong to the correct tipo\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete product Valid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete product Valid",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:07:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete product invalid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad879fc2f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad879fc2f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete tienda invalid Copy",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad879fc2f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad879fc2f"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-aUPqo9fnmSPjUKh2EHmkDTEDeVU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:07:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The producto with the given id was not found\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "producto-tienda",
+			"item": [
+				{
+					"name": "asociar valido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/a864e0e6-3949-49ad-a970-d6a43c32b5de/stores/f1e42d05-5147-4b0a-ba4e-ad269021bcbe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"a864e0e6-3949-49ad-a970-d6a43c32b5de",
+								"stores",
+								"f1e42d05-5147-4b0a-ba4e-ad269021bcbe"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "asociar valido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720081a"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:39:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "asociarInvalido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1720008a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1720008a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "asociarInvalido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1720008a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720008a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-ZCYcHtKXt0nHB4XhOo+h7s3nW2k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:39:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The tienda with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get tiendas by product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+								"stores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+										"stores"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6e-1i6UM+aUrUUqh9J8E981fRKdXO4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:43:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"d06995d9-cd67-4df5-a964-9e8b1720081a\",\n        \"nombre\": \"tienda 1\",\n        \"ciudad\": \"MED\",\n        \"direccion\": \"plaza central\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "obtener tienda por producto valido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/a864e0e6-3949-49ad-a970-d6a43c32b5de/stores/f1e42d05-5147-4b0a-ba4e-ad269021bcbe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"a864e0e6-3949-49ad-a970-d6a43c32b5de",
+								"stores",
+								"f1e42d05-5147-4b0a-ba4e-ad269021bcbe"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "obtener tienda por producto valido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720081a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "108"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6c-qdf9OT+uucLR9roOmbKtOs0OfIw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:52:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d06995d9-cd67-4df5-a964-9e8b1720081a\",\n    \"nombre\": \"tienda 1\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\"\n}"
+						}
+					]
+				},
+				{
+					"name": "obtener tienda por producto invalido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1700081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1700081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "obtener tienda por producto invalido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1700081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1700081a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "106"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6a-6JWOB094vUbfCh7yNaP6S29nKDE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 00:52:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The tienda with the given id was not found or do not belong to that product\"\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar tienda valido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1720081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar tienda valido",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720081a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"85-8HS7kmMfCxZe3qkICrYnQ5wWXsQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:03:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d06995d9-cd67-4df5-a964-9e8b1720081a\",\n    \"nombre\": \"tienda actualizada\",\n    \"ciudad\": \"MED\",\n    \"direccion\": \"plaza central\",\n    \"productos\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar tienda invalido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1721181a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1721181a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar tienda invalido",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"producto actualizada\",\n    \"precio\": 1,\n    \"tipo\": \"Perecedero\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1721181a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1721181a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-ZCYcHtKXt0nHB4XhOo+h7s3nW2k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:04:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The tienda with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete tienda Valid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad871fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad871fc2f",
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1720081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete tienda Valid",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/a864e0e6-3949-49ad-a970-d6a43c32b5de/stores/f1e42d05-5147-4b0a-ba4e-ad269021bcbe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"a864e0e6-3949-49ad-a970-d6a43c32b5de",
+										"stores",
+										"f1e42d05-5147-4b0a-ba4e-ad269021bcbe"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:14:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete tienda invalid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad879fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"ffb48876-3090-48e1-ba46-f54ad879fc2f",
+								"stores",
+								"d06995d9-cd67-4df5-a964-9e8b1720081a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete tienda invalid Copy",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/ffb48876-3090-48e1-ba46-f54ad879fc2f/stores/d06995d9-cd67-4df5-a964-9e8b1720081a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"ffb48876-3090-48e1-ba46-f54ad879fc2f",
+										"stores",
+										"d06995d9-cd67-4df5-a964-9e8b1720081a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-aUPqo9fnmSPjUKh2EHmkDTEDeVU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:11:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The producto with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete tienda invalid 2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/a864e0e6-3949-49ad-a970-d6a43c32b5de/stores/f1e42d05-5147-4b0a-ba4e-ad269821bcbe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"a864e0e6-3949-49ad-a970-d6a43c32b5de",
+								"stores",
+								"f1e42d05-5147-4b0a-ba4e-ad269821bcbe"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete tienda invalid 2",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/a864e0e6-3949-49ad-a970-d6a43c32b5de/stores/f1e42d05-5147-4b0a-ba4e-ad269821bcbe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"a864e0e6-3949-49ad-a970-d6a43c32b5de",
+										"stores",
+										"f1e42d05-5147-4b0a-ba4e-ad269821bcbe"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-ZCYcHtKXt0nHB4XhOo+h7s3nW2k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:13:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The tienda with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete tienda invalid 3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/d5205461-1beb-494e-a56a-e47c0e4d9220/stores/f1e42d05-5147-4b0a-ba4e-ad269021bcbe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"d5205461-1beb-494e-a56a-e47c0e4d9220",
+								"stores",
+								"f1e42d05-5147-4b0a-ba4e-ad269021bcbe"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete tienda invalid 3",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/products/d5205461-1beb-494e-a56a-e47c0e4d9220/stores/f1e42d05-5147-4b0a-ba4e-ad269021bcbe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"products",
+										"d5205461-1beb-494e-a56a-e47c0e4d9220",
+										"stores",
+										"f1e42d05-5147-4b0a-ba4e-ad269021bcbe"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-iPrr1uIWrpLEe9yEUTLAAVq1MAI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 01:13:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The tienda do not have that product\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

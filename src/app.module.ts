@@ -23,7 +23,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'apis-parcial',
       ssl: true,
       entities: [TiendaEntity, ProductoEntity],
-      dropSchema: true,
       synchronize: true,
       keepConnectionAlive: true,
     }),
